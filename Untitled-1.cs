@@ -48,14 +48,14 @@ class circle :Shape
 }
 public class perimeterFounder {
  
-    public void foundRectanglePerimeter (rectangle rectangle) {
+    public void foundPerimeter (rectangle rectangle) {
         System.out.print(2*rectangle.shortEdge+rectangle.longEdge*2);
     }
  
-    public void foundSquarePerimeter (square square) {
+    public void foundPerimeter (square square) {
         System.out.print(square.Edge*4);
     }
-    public void foundCirclePerimeter(circle circle) {
+    public void foundPerimeter(circle circle) {
         System.out.print(circle.PI*circle.r*2);
     }
 }
@@ -76,9 +76,9 @@ class TestClass
             square c= new square(4);
             Console.WriteLine(c.Area());
             perimeterFounder founder = new perimeterFounder();
-            founder.foundCirclePerimeter(a);
-            founder.foundRectanglePerimeter(b);
-            founder.foundSquarePerimeter(c);
+            founder.foundPerimeter(a);
+            founder.foundPerimeter(b);
+            founder.foundPerimeter(c);
 
     }
 }
