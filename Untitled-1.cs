@@ -1,4 +1,4 @@
-class square :Shape
+class square :Shape,perimeterFounder
 {
  private double Edge;
  public square(double a)
@@ -11,8 +11,13 @@ class square :Shape
             Console.WriteLine("square area :");
             return Edge*Edge;
         }
+           public override double Perimeter()
+        {
+            
+            return (Edge*4);
+        }
 }
-class rectangle :Shape
+class rectangle :Shape,perimeterFounder
 {
     //encapsulation
     private double longEdge;
@@ -27,10 +32,16 @@ class rectangle :Shape
             Console.WriteLine("rectangle area :");
             return longEdge*shortEdge;
         }
+         public override double Perimeter()
+        {
+            
+            return (2*shortEdge+longEdge*2);
+        }
+        
 }
 
 //inheritence
-class circle :Shape
+class circle :Shape,perimeterFounder
 {
     private double r;
     private double PI=3;
@@ -44,25 +55,31 @@ class circle :Shape
             Console.WriteLine("Circle area :");
             return PI * r * r;
         }
+           public override double Perimeter()
+        {
+            
+            return (PI*r*2);
+        }
 
 }
-public class perimeterFounder {
+public class perimeterFounder:Shape {
  
     public void foundPerimeter (rectangle rectangle) {
-        System.out.print(2*rectangle.shortEdge+rectangle.longEdge*2);
+        System.out.print(rectangle.Perimeter());
     }
  
     public void foundPerimeter (square square) {
-        System.out.print(square.Edge*4);
+        System.out.print(square.Perimeter());
     }
     public void foundPerimeter(circle circle) {
-        System.out.print(circle.PI*circle.r*2);
+        System.out.print(circle.Perimeter());
     }
 }
  public interface Shape
     {
         //abstraction
         public abstract double Area();
+        public abstract double Perimeter();
     }
 
 class TestClass
