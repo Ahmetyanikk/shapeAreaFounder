@@ -1,22 +1,34 @@
-class quadrilateral :Shape
+class square :Shape
+{
+ private double Edge;
+ public square(double a)
+        {
+            this.Edge = a;
+            
+        }
+        public override double Area()
+        {
+            Console.WriteLine("square area :");
+            return Edge*Edge;
+        }
+}
+class rectangle :Shape
 {
     //encapsulation
     private double longEdge;
     private double  shortEdge;
-     public quadrilateral(double a,double b)
+    public quadrilateral(double a,double b)
         {
             this.longEdge = a;
             this.shortEdge= b;
         }
-        //Polymorphism
         public override double Area()
         {
-            Console.WriteLine("quadrilateral area :");
+            Console.WriteLine("rectangle area :");
             return longEdge*shortEdge;
         }
- 
-    
 }
+
 //inheritence
 class circle :Shape
 {
@@ -34,6 +46,19 @@ class circle :Shape
         }
 
 }
+public class perimeterFounder {
+ 
+    public void foundRectanglePerimeter (rectangle rectangle) {
+        System.out.print(2*rectangle.shortEdge+rectangle.longEdge*2);
+    }
+ 
+    public void foundSquarePerimeter (square square) {
+        System.out.print(square.Edge*4);
+    }
+    public void foundCirclePerimeter(circle circle) {
+        System.out.print(circle.PI*circle.r*2);
+    }
+}
  public interface Shape
     {
         //abstraction
@@ -46,8 +71,14 @@ class TestClass
     {
             Cirle a = new Cirle(5);
             Console.WriteLine(a.Area());
-            quadrilateral b = new quadrilateral(7, 8);
+            quadrilateral b = new rectangle(7, 8);
             Console.WriteLine(b.Area());
+            square c= new square(4);
+            Console.WriteLine(c.Area());
+            perimeterFounder founder = new perimeterFounder();
+            founder.foundCirclePerimeter(a);
+            founder.foundRectanglePerimeter(b);
+            founder.foundSquarePerimeter(c);
 
     }
 }
